@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "616228222112",
+    "project_id": "betterme-9106f",
+    "storage_bucket": "betterme-9106f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616228222112:android:9d9dee3754688450f405c5",
+        "android_client_info": {
+          "package_name": "com.betterme.fitness_ai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaFAITzEgu_wPgJ1l6TD99UUGHYni8pJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
