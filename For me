@@ -1,0 +1,89 @@
+מה לעשות בפעם הבאה כש־flutter analyze או build נתקעים הרבה זמן
+1️⃣ קודם כל – לעצור את מה שרץ
+
+אם זה רץ מתוך Cursor כ־Task:
+
+תלחץ על Cancel / Stop Run.
+
+אם זה רץ בטרמינל:
+
+לחץ CTRL + C כדי לעצור.
+
+כלל אצבע: אם flutter analyze לוקח יותר מ־2–3 דקות בפרויקט בסדר גודל רגיל → הוא כנראה תקוע.
+
+2️⃣ להריץ flutter analyze ידנית כדי לראות איפה תקוע
+
+תפתח טרמינל בתיקייה של הפרויקט (איפה שיש pubspec.yaml) ותהריץ:
+
+flutter analyze -v
+
+
+שימו לב:
+
+אם זה מסיים תוך זמן סביר → סבבה, תראה את השגיאות ותטפל.
+
+אם זה נתקע הרבה זמן על אותה שורה → אפשר לעצור (CTRL + C) ולעבור לניקוי.
+
+3️⃣ ניקוי יסודי של הפרויקט
+ב־PowerShell / CMD בווינדוס
+flutter clean
+Remove-Item -Recurse -Force .dart_tool
+Remove-Item -Recurse -Force build
+flutter pub get
+
+בלינוקס / macOS (או WSL)
+flutter clean
+rm -rf .dart_tool
+rm -rf build
+flutter pub get
+
+
+אחרי זה, שוב:
+
+flutter analyze
+
+
+אם אחרי הניקוי flutter analyze עדיין:
+
+לוקח 10+ דקות.
+
+או נתקע בלי סוף.
+
+אז:
+
+זו בדרך כלל בעיית מערכת:
+
+דיסק חיצוני איטי / עמוס
+
+אנטי־וירוס חונק קבצים
+
+זיכרון/CPU על הפנים
+
+או בעיה עם Flutter SDK/Java.
+
+במצב כזה:
+
+אתה יכול להמשיך לפתח ולהריץ את האפליקציה עם flutter run,
+ועדיין לטפל ב־errors לפי המסך האדום בלי להיות תלוי ב־flutter analyze כל ריצה.
+
+4️⃣ טיפים לעתיד (במיוחד עם Cursor)
+
+כשאתה מריץ Task בקורסור:
+
+אל תכלול תמיד flutter analyze אם המחשב שלך קורס מזה.
+
+אפשר להגיד לסוכן שיריץ רק:
+
+flutter pub get
+
+flutter build או flutter run
+
+או שיבדוק קבצים ספציפיים.
+
+אם אתה רואה שהמשימה “stuck on analyzer”:
+
+מבטל,
+
+עושה את שלב הניקוי למעלה,
+
+ואז מריץ שוב אבל בלי האנלייזר, או עם אנלייזר כצעד נפרד.
